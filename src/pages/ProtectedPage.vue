@@ -14,5 +14,10 @@ function logout() {
     <h1>Панель управления</h1>
     <p>Вы успешно авторизованы.</p>
     <button @click="logout">Выйти</button>
+    <nav>
+  <RouterLink to="/dashboard">Панель</RouterLink>
+  <RouterLink to="/dashboard/profile">Профиль</RouterLink>
+</nav>
+<RouterView />
   </main>
 </template>

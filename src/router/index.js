@@ -4,6 +4,7 @@ import ProductListPage from '../pages/ProductListPage.vue'
 import ProductDetailPage from '../pages/ProductDetailPage.vue'
 import LoginPage from '../pages/LoginPage.vue'
 import ProtectedPage from '../pages/ProtectedPage.vue'
+import DashboardProfilePage from '../pages/DashboardProfilePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,9 +27,16 @@ const router = createRouter({
       path: '/dashboard',
       name: 'Dashboard',
       component: ProtectedPage,
-      meta: { requiresAuth: true },
+      meta: {requiresAuth: true},
+      children: [
+        {
+          path: 'profile',
+          name: 'DashboardProfile',
+          component: DashboardProfilePage,
+        },
+      ],
     },
-  ],
+      ]
 })
 
 router.beforeEach((to) => {
